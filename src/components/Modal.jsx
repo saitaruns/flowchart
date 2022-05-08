@@ -5,27 +5,27 @@ import { useContext, useState } from "react";
 import { RiCloseLine } from "react-icons/ri";
 
 const Modal = ({ title }) => {
-  const { setModal, addElements } = useContext(ModalContext);
+  const { openModal, addElem } = useContext(ModalContext);
   const [isTwo, setIsTwo] = useState(false)
   const [in1, setIn1] = useState("")
   const [in2, setIn2] = useState("")
 
   const handleAdd = ()=>{
-    isTwo ? addElements(in1,in2):addElements(in1);
+    isTwo ? addElem(in1,in2):addElem(in1);
     setIn1("")
     setIn2("")
-    setModal(false)
+    openModal(false)
   }
 
   return reactDom.createPortal(
     <>
-      <div className={"darkBG"} onClick={() => setModal(false)} />
+      <div className={"darkBG"} onClick={() => openModal(false)} />
       <div className={"centered"}>
         <div className={"modal"}>
           <div className={"modalHeader"}>
             <h5 className={"heading"}>{title}</h5>
           </div>
-          <button className={"closeBtn"} onClick={() => setModal(false)}>
+          <button className={"closeBtn"} onClick={() => openModal(false)}>
             <RiCloseLine style={{ marginBottom: "-3px" }} />
           </button>
           <div className={"modalContent"}>

@@ -3,11 +3,13 @@ import { FaTrashAlt, FaPlus } from "react-icons/fa";
 import { useState,useContext } from "react";
 import {ModalContext} from "../Helper/ModalContext";
 
-const Card = ({ title,id }) => {
-  const {setModal} = useContext(ModalContext)
+const CardSingle = ({ title,x,y }) => {
+  const {openModal} = useContext(ModalContext)
   const [hover, setHover] = useState(false);
+  
   return (
-    <div className="card-main">
+    <div className="card-main" style={{top:x+"px",left:y+"px"}}>
+      <div className="vrbar"></div>
       <div
         className="card"
         onMouseOver={() => setHover(true)}
@@ -20,12 +22,12 @@ const Card = ({ title,id }) => {
             </button>
           )}
       </div>
-      <div className="hrbar"></div>
-      <button className="icon-btn plus" onClick={()=>setModal(true)}>
-        <FaPlus />        
+      <div className="vrbar"></div>
+      <button className="icon-btn plus" onClick={()=>openModal(true)}>
+        <FaPlus />
       </button>
     </div>
   );
 };
 
-export default Card;
+export default CardSingle;
