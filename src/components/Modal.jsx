@@ -30,7 +30,7 @@ const Modal = ({ title }) => {
           </button>
           <div className={"modalContent"}>
             <div className="options">
-                <button className="single addBtn" style={{backgroundColor:isTwo?"gray":"#2c3e50"}} onClick={()=>setIsTwo(false)}>
+                <button className="single addBtn" autoFocus={true} style={{backgroundColor:isTwo?"gray":"#2c3e50"}} onClick={()=>setIsTwo(false)}>
                     Single
                 </button>
                 <button className="two addBtn" style={{backgroundColor:isTwo?"#2c3e50":"gray"}} onClick={()=>setIsTwo(true)}>

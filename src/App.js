@@ -11,28 +11,28 @@ function App() {
       id: "root",
       text: "Root",
       children: [
-        {
-          id: "child1",
-          text: "child1",
-          children: [
-            {
-              id:"grandchild1",
-              text:"grandchild1",
-              children:[]
-            }
-          ],
-        },
-        {
-          id: "child2",
-          text: "child2",
-          children: [
-            {
-              id:"grandchild2",
-              text:"grandchild2",
-              children:[]
-            }
-          ],
-        },
+    //     {
+    //       id: "child1",
+    //       text: "child1",
+    //       children: [
+    //         {
+    //           id:"grandchild1",
+    //           text:"grandchild1",
+    //           children:[]
+    //         }
+    //       ],
+    //     },
+    //     {
+    //       id: "child2",
+    //       text: "child2",
+    //       children: [
+    //         {
+    //           id:"grandchild2",
+    //           text:"grandchild2",
+    //           children:[]
+    //         }
+    //       ],
+    //     },
       ],
     },
   ]);
@@ -112,7 +112,7 @@ function App() {
           handleDelete,
         }}
       >
-        {modal && <Modal title={"Select Number of Elements to be added"} />}
+        {modal && <Modal title={"Select Number of Elements to be added"} autoFocus={false} />}
 
         <Tree
           flowTree={[...flowTree]}
