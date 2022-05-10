@@ -5,6 +5,9 @@
 
 .card-main{
     width: var(--card-width);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     position: absolute;
 }
 
@@ -14,7 +17,7 @@
     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
     max-width: 100%;
     padding: 0;
-    width: var(--card-width);
+    /* width: var(--card-width); */
     height: var(--card-height);
     transition: all 300ms;
     display: flex;
@@ -30,7 +33,7 @@
 
 .close{
     position: absolute;
-    top: -10px;
+    top: 30px;
     right:-10px;
     background: #ff0000;
 }
@@ -43,8 +46,8 @@
     font-size: 1rem;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-    padding: 5px;
     display: flex;
+    padding: 5px;
     justify-content: center;
     align-items: center;
 }
@@ -57,7 +60,7 @@
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
-.card-two{
+/* .card-two{
     width: calc( var(--card-width) * 2 + 30px);
 }
 
@@ -67,7 +70,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-}
+} */
 
 .vrbar{
     width: 5px;
@@ -78,9 +81,14 @@
 
 .hrbar{
     height: 5px;
-    width: calc( var(--card-width) + 35px);
+    width: 180px;
     background: white;
     margin: 0 auto;
+}
+
+.two-bars{
+    position: absolute;
+
 }
 
 .plus{

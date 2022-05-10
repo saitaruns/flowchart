@@ -5,27 +5,27 @@ import { useContext, useState } from "react";
 import { RiCloseLine } from "react-icons/ri";
 
 const Modal = ({ title }) => {
-  const { openModal, addElem } = useContext(ModalContext);
+  const { toggleModal, handleAdd } = useContext(ModalContext);
   const [isTwo, setIsTwo] = useState(false)
   const [in1, setIn1] = useState("")
   const [in2, setIn2] = useState("")
 
-  const handleAdd = ()=>{
-    isTwo ? addElem(in1,in2):addElem(in1);
+  const handleModalAdd = ()=>{
+    isTwo ? handleAdd(in1,in2) : handleAdd(in1); 
     setIn1("")
     setIn2("")
-    openModal(false)
+    toggleModal(false)
   }
 
   return reactDom.createPortal(
     <>
-      <div className={"darkBG"} onClick={() => openModal(false)} />
+      <div className={"darkBG"} onClick={() => toggleModal(false)} />
       <div className={"centered"}>
         <div className={"modal"}>
           <div className={"modalHeader"}>
             <h5 className={"heading"}>{title}</h5>
           </div>
-          <button className={"closeBtn"} onClick={() => openModal(false)}>
+          <button className={"closeBtn"} onClick={() => toggleModal(false)}>
             <RiCloseLine style={{ marginBottom: "-3px" }} />
           </button>
           <div className={"modalContent"}>
@@ -44,7 +44,7 @@ const Modal = ({ title }) => {
           </div>
           <div className={"modalActions"}>
             <div className={"actionsContainer"}>
-              <button className={"addBtn"} onClick={handleAdd} >Add</button>
+              <button className={"addBtn"} onClick={handleModalAdd} >Add</button>
             </div>
           </div>
         </div>

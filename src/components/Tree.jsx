@@ -1,22 +1,26 @@
-import CardSingle from "./CardSingle"
-import CardTwo from './CardTwo'
+import CardSingle from "./CardSingle";
 
-const Tree = (flowTree) => {
-  const len = Object.keys(flowTree).length
-
-  console.log(flowTree[0].children)
-  return (len === 1) ? (
-    <>
-      <CardSingle title={flowTree[0].text} x={flowTree[0].x} y={flowTree[0].y} />
-      {flowTree[0].children && flowTree[0].children.length > 0 && <Tree {...flowTree[0].children} /> }
-    </>
-  ) : (
-    <>
-      <CardTwo title1={flowTree[0].text} title2={flowTree[1].text} x1={flowTree[0].x} y1={flowTree[0].y} x2={flowTree[1].x} y2={flowTree[1].y} />
-      {flowTree[0].children && flowTree[0].children.length > 0 && <Tree {...flowTree[0].children} />}
-      {flowTree[1].children && flowTree[1].children.length > 0 && <Tree {...flowTree[1].children} />}
-    </>
-  )
+const Tree = ({ flowTree, x, y, gap,w }) => {
+  const len = Object.keys(flowTree).length;
+  const den = 1
+  let x_dash = (x+(w/2) - ((len * (w/den) + (len-1) * (gap/den))/2))
+  x_dash -=  (w +gap/den)
+  return flowTree.map((node,) => {
+    x_dash += (w + gap/den);
+    return (
+      <>
+        <CardSingle {...node} x={x_dash} y={y} w={w} />
+        {node.children && node.children.length > 0 && (
+          <Tree
+            flowTree={[...node.children]}
+            x={x_dash}
+            y={y + 166}
+            gap={gap/den}
+            w={w/den}
+          />
+        )}
+      </>
+    );
+  });
 }
-
-export default Tree
+export default Tree;
