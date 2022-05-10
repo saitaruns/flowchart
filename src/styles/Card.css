@@ -81,7 +81,7 @@
 
 .hrbar{
     height: 5px;
-    width: 180px;
+    /* width: 180px; */
     background: white;
     margin: 0 auto;
 }

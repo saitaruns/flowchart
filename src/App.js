@@ -58,7 +58,7 @@ function App() {
         if (node.children.length < 2) {
           node.children.push(newNode);
         } else {
-          console.log("2 children max");
+          alert("2 children max");
         }
         return;
       }
@@ -69,8 +69,8 @@ function App() {
 
   const deleteElem = (obj, id) => {
     obj.forEach((elem,i) => {
-      if (elem.id === id && elem.children.length === 0) {
-        obj.splice(i, 1);
+      if (elem.id === id) {
+        (elem.children.length === 0) ? obj.splice(i, 1) : alert("Cant delete nodes with children")
       }
       deleteElem(elem.children, id);
     });
@@ -116,10 +116,10 @@ function App() {
 
         <Tree
           flowTree={[...flowTree]}
-          x={window.screen.width / 2}
+          x={window.screen.width / 2 - 100}
           y={100}
-          gap={530}
-          w={100}
+          gap={300*1.3}
+          w={90*1.3}
         />
       </ModalContext.Provider>
     </div>
