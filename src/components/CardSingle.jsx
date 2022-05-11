@@ -22,7 +22,6 @@ const CardSingle = ({text,id,x,y,w}) => {
         onMouseLeave={() => setHover(false)}
       >
         <p className="card-text">{text}
-         {/* x: {x} y: {y} */}
          </p>          
         {hover && (
             <button className="close icon-btn" onClick={()=>handleDelete(id)}>

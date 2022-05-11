@@ -77,11 +77,9 @@ function App() {
   };
 
   const handleDelete = (id) => {
-    console.log(id);
     const flowCopy = Object.assign([], flowTree); //creates a copy of the state
     deleteElem(flowCopy, id);
     setFlowTree(flowCopy)
-    // console.log(flowCopy);
   };
 
   const handleAdd = (text1, text2 = null) => {
@@ -94,7 +92,6 @@ function App() {
       resTree = addElem(flowCopy, parentId, text2);
     }
     setFlowTree(resTree);
-    console.log(flowTree);
   };
 
   return (

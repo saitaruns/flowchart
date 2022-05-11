@@ -18,7 +18,6 @@
   
   .modal {
     width: 400px;
-    height: 270px;
     background: white;
     color: white;
     z-index: 10;
@@ -49,7 +48,7 @@
   }
   
   .modalActions {
-    position: absolute;
+    position: relative;
     bottom: 2px;
     margin-bottom: 10px;
     width: 100%;
@@ -108,19 +107,22 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    margin: 10px;
+    margin: 10px 0px;
  }
 
- .tile-input > *{
+ .tile-input > input[type="text"]{
     /* material style ui for input text */
     font-size: 1rem;
     color: #2c3e50;
     border: none;
-    border: 1px solid #2c3e50;
+    border: 2px solid lightgray;
     border-radius: 5px;
     padding: 5px;
     width: 80%;
     outline: none;
     margin: 5px;
-    transition: all 0.25s ease;
  }
+
+  .tile-input > input[type="text"]:active, .tile-input > input[type="text"]:focus{
+    border: 2px solid black;
+  }

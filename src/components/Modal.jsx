@@ -9,8 +9,16 @@ const Modal = ({ title }) => {
   const [isTwo, setIsTwo] = useState(false)
   const [in1, setIn1] = useState("")
   const [in2, setIn2] = useState("")
+  const [error, setError] = useState("")
 
   const handleModalAdd = ()=>{
+    if((isTwo===false && in1==="") || (isTwo===true && (in1==="" || in2===""))){
+      setError("Cannot add node with empty text")
+      setTimeout(() => {
+        setError("")
+      }, 2000);
+      return;
+    }
     isTwo ? handleAdd(in1,in2) : handleAdd(in1); 
     setIn1("")
     setIn2("")
@@ -40,6 +48,7 @@ const Modal = ({ title }) => {
             <div className="tile-input">
                 <input type="text" placeholder="Enter your text here..." value={in1} onChange={(e)=>setIn1(e.target.value)} />
                 {isTwo && <input type="text" placeholder="Enter your text here..." value={in2} onChange={(e)=>setIn2(e.target.value)} />}
+                {error!=="" && <p style={{color:"red"}}>{error}</p> }
             </div>
           </div>
           <div className={"modalActions"}>
